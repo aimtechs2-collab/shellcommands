@@ -11,6 +11,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Progress } from '@/components/ui/progress'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { ClerkUserMenu } from '@/components/clerk-user-menu'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 interface Command {
   id: string
@@ -1925,6 +1926,7 @@ export default function Home() {
                   Resources
                 </button>
               </nav>
+              <ThemeToggle />
               <ClerkUserMenu />
               <button
                 className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
