@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Progress } from '@/components/ui/progress'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { ClerkUserMenu } from '@/components/clerk-user-menu'
 
 interface Command {
   id: string
@@ -1897,39 +1898,41 @@ export default function Home() {
               </div>
             </div>
             
-            <nav className="hidden md:flex items-center gap-6">
-              <button 
-                onClick={() => setCurrentView('home')}
-                className={`text-sm font-medium transition-colors ${currentView === 'home' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
+            <div className="flex items-center gap-3 md:gap-4">
+              <nav className="hidden md:flex items-center gap-6">
+                <button 
+                  onClick={() => setCurrentView('home')}
+                  className={`text-sm font-medium transition-colors ${currentView === 'home' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
+                >
+                  Commands
+                </button>
+                <button 
+                  onClick={() => setCurrentView('curriculum')}
+                  className={`text-sm font-medium transition-colors ${currentView === 'curriculum' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
+                >
+                  Curriculum
+                </button>
+                <button 
+                  onClick={() => setCurrentView('practice')}
+                  className={`text-sm font-medium transition-colors ${currentView === 'practice' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
+                >
+                  Practice
+                </button>
+                <button 
+                  onClick={() => setCurrentView('resources')}
+                  className={`text-sm font-medium transition-colors ${currentView === 'resources' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
+                >
+                  Resources
+                </button>
+              </nav>
+              <ClerkUserMenu />
+              <button
+                className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                Commands
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
-              <button 
-                onClick={() => setCurrentView('curriculum')}
-                className={`text-sm font-medium transition-colors ${currentView === 'curriculum' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
-              >
-                Curriculum
-              </button>
-              <button 
-                onClick={() => setCurrentView('practice')}
-                className={`text-sm font-medium transition-colors ${currentView === 'practice' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
-              >
-                Practice
-              </button>
-              <button 
-                onClick={() => setCurrentView('resources')}
-                className={`text-sm font-medium transition-colors ${currentView === 'resources' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400'}`}
-              >
-                Resources
-              </button>
-            </nav>
-
-            <button
-              className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
